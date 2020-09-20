@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+{% extends 'dashboard/base.html'%}
+
+{% block mainpage %}
+{% if zeros %}
+<div class="card mb-5 mt-2" style="width:95% ">
+		<canvas id="canvas"></canvas>
+</div>
+{% endif %}
+
+{% endblock %}
+{% block side %}
+
+  {% if zeros %}
+  <div class="grid mt-2">
+    <div class="grid-sizer col-md-3"></div>
+    <div class="grid-item col-md-12 mb-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">TF ={{num}}/{{den}}</h5>
+          <p class="card-text">Stable : {{stable}}</p>
+          <a class="card-link">Card link</a>
+          <a class="card-link">Another link</a>
+        </div>
+      </div>
+   </div>
+   </div>
+   {%else%}
+   <div class="grid mt-2">
+  <div class="grid-sizer col-md-3"></div>
+  <div class="grid-item col-md-12 mb-4">
+    <div class="card">
+      <div class="card-body">
+        <!-- Default form grid -->
+        <form method="post">
+					{%csrf_token%}
+          <!-- Grid row -->
+          <div class="">
+            <!-- Grid column -->
+            <div class="col">
+              <!-- Default input -->
+              <input type="text" name="num" class="form-control" placeholder="Num(TF)">
+            </div>
+            <!-- Grid column --><br>
+            <!-- Grid column -->
+            <div class="col">
+              <!-- Default input -->
+              <input type="text" name="den" class="form-control"  placeholder="Den(TF)">
+            </div>
+            <!-- Grid column -->
+            <div class="col">
+            	&nbsp;&nbsp<button type="submit" class="btn btn-primary btn-md">Submit TF</button>            	
+            </div>          
+          </div>
+          <!-- Grid row -->
+          
+        </form>
+        <!-- Default form grid -->
+      </div>
+    </div>
+  </div>
+  </div>
+
+  {% endif %}
+{% endblock %}
+{% block jsblock %}
+var color = Chart.helpers.color;
+	var scatterChartData = {
+		datasets: [{
+			label: 'Poles',
+			xAxisID: 'x-axis-1',
+			yAxisID: 'y-axis-1',
+			borderColor: window.chartColors.red,
+			backgroundColor: color(window.chartColors.red).alpha(0.2).rgbString(),
+			data: [
+			{%for pole in poles %}{
+				x: {{pole.real}},
+				y: {{pole.imag}},
+			},
+			{% endfor %}
+			],
+			pointRadius: 10,
+			pointHoverRadius: 15,
+		}, {
+			label: 'Zeroes',
+			xAxisID: 'x-axis-1',
+			yAxisID: 'y-axis-2',
+			borderColor: window.chartColors.blue,
+			backgroundColor: color(window.chartColors.blue).alpha(0.2).rgbString(),
+			data: [
+			{%for zero in zeros%}
+			{
+				x: {{zero.real}},
+				y: {{zero.imag}},
+			},
+			{% endfor %}
+			],
+			pointRadius: 10,
+			pointHoverRadius: 15,
+		}]
+	};
+
+	window.onload = function() {
+		var ctx = document.getElementById('canvas').getContext('2d');
+		window.myScatter = Chart.Scatter(ctx, {
+			data: scatterChartData,
+			options: {
+				responsive: true,
+				hoverMode: 'nearest',
+				intersect: true,
+				title: {
+					display: true,
+					text: 'Pole Zero Plotting'
+				},elements: {
+						point: {
+							pointStyle: "circle",
+						}
+					},
+				scales: {
+					xAxes: [{
+						position: 'bottom',
+						gridLines: {
+						display:true,
+						drawOnChartArea: false,
+						zeroLineColor: 'rgba(255,0,0,1)'
+						}
+					}],
+					yAxes: [{
+						type: 'linear', // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
+						display: true,
+						position: 'left',
+						id: 'y-axis-1',
+						gridLines: {
+							display:false,
+							drawOnChartArea: false, // only want the grid lines for one axis to show up
+						}
+					}, {
+						type: 'linear', // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
+						display: true,
+						position: 'right',
+						reverse: true,
+						id: 'y-axis-2',
+
+						// grid line settings
+						gridLines: {
+							display:false,
+							drawOnChartArea: false, // only want the grid lines for one axis to show up
+						},
+					}],
+				}
+			}
+		});
+	};
+{% endblock %}

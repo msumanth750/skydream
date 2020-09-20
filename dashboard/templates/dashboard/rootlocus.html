@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+{% extends 'dashboard/base.html'%}
+
+{% block mainpage %}
+<div class="card {{gradient}} mb-2 mt-2 ml-1" style="width:95% ">
+		<canvas id="canvas"></canvas>
+</div>
+{% endblock %}
+
+{% block side %}
+<div class="grid mt-2 ml-2 mr-2">
+  <div class="grid-sizer col-md-3"></div>
+  <div class="grid-item col-md-12 mb-4">
+    <div class="card">
+      <div class="card-body">
+        <!-- Default form grid -->
+        <form>
+          <!-- Grid row -->
+          <div class="row">
+            <!-- Grid column -->
+            <div class="col">
+              <!-- Default input -->
+              <input type="text" class="form-control" placeholder="Char Eqn">
+            </div>
+            <!-- Grid column -->
+
+          </div>
+          <!-- Grid row -->
+          <br>
+          <button type="submit" class="btn btn-primary btn-md">Submit TF</button>
+        </form>
+        <!-- Default form grid -->
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="grid mt-2 ml-2 mr-2">
+    <div class="grid-sizer col-md-3"></div>
+    <div class="grid-item col-md-12 mb-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Panel title</h5>
+          <p class="card-text">Some quick example text to build on the panel title and make up the bulk of the panel's content.</p>
+          <a class="card-link">Card link</a>
+          <a class="card-link">Another link</a>
+        </div>
+      </div>
+    </div>
+    </div>
+{% endblock %}
+{% block jsblock %}
+var color = Chart.helpers.color;
+
+function generateData() {
+  var data = [];
+  for (var i = 0; i < 7; i++) {
+    data.push({
+      x: randomScalingFactor(),
+      y: randomScalingFactor()
+    });
+  }
+  return data;
+}
+var lineshow = false;
+var scatterChartData = {
+  datasets: [{
+    label: 'pole1',
+    borderColor: window.chartColors.red,
+    backgroundColor: color(window.chartColors.red).alpha(0.2).rgbString(),
+    data: [{% for pole in pole1%}
+      {
+        x: {{pole.real}},
+        y: {{pole.imag}}
+      },
+    {%endfor%}],
+    showLine: lineshow,
+  },  {
+    label: 'pole2',
+    borderColor: window.chartColors.blue,
+    backgroundColor: color(window.chartColors.blue).alpha(0.2).rgbString(),
+    data: [{% for pole in pole2%}
+      {
+        x: {{pole.real}},
+        y: {{pole.imag}}
+      },
+    {%endfor%}],
+    showLine: lineshow,
+  },{
+    label: 'pole3',
+    borderColor: window.chartColors.green,
+    backgroundColor: color(window.chartColors.green).alpha(0.2).rgbString(),
+    data: [{% for pole in pole3%}
+      {
+        x: {{pole.real}},
+        y: {{pole.imag}}
+      },
+    {%endfor%}],
+    showLine: lineshow,
+  }]
+};
+
+window.onload = function() {
+  var ctx = document.getElementById('canvas').getContext('2d');
+  window.myScatter = Chart.Scatter(ctx, {
+    data: scatterChartData,
+    options: {
+      title: {
+        display: true,
+        text: 'Root Locus Plot'
+      },
+    }
+  });
+};
+{% endblock %}
