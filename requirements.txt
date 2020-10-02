@@ -16,8 +16,6 @@ entrypoints
 gunicorn
 html5lib
 httplib2
-idna
-jdcal
 language-selector
 launchpadlib
 lazr.restfulclient
