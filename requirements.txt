@@ -4,13 +4,11 @@ django-cors-headers
 django-crispy-forms
 django-import-export
 djangorestframework
-duplicity
-entrypoints
+
 gunicorn
 macaroonbakery
 numpy
 pandas
-Pillow
 python-apt==2.0.0+ubuntu0.20.4.1
 python-dateutil==2.7.3
 python-debian===0.1.36ubuntu1
@@ -19,5 +17,4 @@ requests-unixsocket
 SecretStorage
 sqlparse
 systemd-python
-text-unidecode
-whitenoise==5.2.0
+whitenoise
