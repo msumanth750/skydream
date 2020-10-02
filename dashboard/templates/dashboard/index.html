@@ -2,119 +2,80 @@
 {% extends 'dashboard/base.html'%}
 
 {% block mainpage %}
-<div class="row row-cols-1 row-cols-md-3">
-  <div class="col mb-4">
-    <div class="card h-100">
-      <!--Card image-->
-      <div class="view overlay">
-        <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg"
-          alt="Card image cap">
-        <a href="#!">
-          <div class="mask rgba-white-slight"></div>
-        </a>
+<!--Carousel Wrapper-->
+<div id="carousel-example-2" class="carousel slide carousel-fade" data-ride="carousel">
+  <!--Indicators-->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-2" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-2" data-slide-to="1"></li>
+    <li data-target="#carousel-example-2" data-slide-to="2"></li>
+    <li data-target="#carousel-example-2" data-slide-to="3"></li>
+  </ol>
+  <!--/.Indicators-->
+  <!--Slides-->
+  <div class="carousel-inner" role="listbox">
+    <div class="carousel-item active">
+      <div class="view">
+        <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(68).jpg"
+          alt="Controls">
+        <div class="mask rgba-black-light"></div>
       </div>
-
-      <!--Card content-->
-      <div class="card-body">
-
-        <!--Title-->
-        <h4 class="card-title">Card title</h4>
-        <!--Text-->
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-          card's content.</p>
-        <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-        <button type="button" class="btn btn-light-blue btn-md">Read more</button>
-
+      <div class="carousel-caption">
+        <h3 class="h3-responsive">Controls</h3>
+        <p>Controls</p>
       </div>
-
     </div>
-    <!-- Card -->
-  </div>
-  <div class="col mb-4">
-    <div class="card h-100">
-      <!--Card image-->
-      <div class="view overlay">
-        <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg" alt="Card image cap">
-        <a href="#!">
-          <div class="mask rgba-white-slight"></div>
-        </a>
+    <div class="carousel-item">
+      <!--Mask color-->
+      <div class="view">
+        <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(6).jpg"
+          alt="Second slide">
+        <div class="mask rgba-black-strong"></div>
       </div>
-
-      <!--Card content-->
-      <div class="card-body">
-
-        <!--Title-->
-        <h4 class="card-title">Card title</h4>
-        <!--Text-->
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-          card's content.</p>
-        <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-        <button type="button" class="btn btn-light-blue btn-md">Read more</button>
-
+      <div class="carousel-caption">
+        <h3 class="h3-responsive">Machines</h3>
+        <p>Machines</p>
       </div>
-
     </div>
-    <!-- Card -->
-  </div>
-  <div class="col mb-4">
-    <div class="card h-100">
-      <!--Card image-->
-      <div class="view overlay">
-        <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg" alt="Card image cap">
-        <a href="#!">
-          <div class="mask rgba-white-slight"></div>
-        </a>
+    <div class="carousel-item">
+      <!--Mask color-->
+      <div class="view">
+        <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(9).jpg"
+          alt="Third slide">
+        <div class="mask rgba-black-slight"></div>
       </div>
-
-      <!--Card content-->
-      <div class="card-body">
-
-        <!--Title-->
-        <h4 class="card-title">Card title</h4>
-        <!--Text-->
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-          card's content. Some quick example text to build on the card title and make up the bulk of the
-          card's content.</p>
-        <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-        <button type="button" class="btn btn-light-blue btn-md">Read more</button>
-
+      <div class="carousel-caption">
+        <h3 class="h3-responsive">Power Systems</h3>
+        <p>Power Systems</p>
       </div>
-
     </div>
-    <!-- Card -->
-  </div>
-  <div class="col mb-4">
-    <div class="card h-100">
-      <!--Card image-->
-      <div class="view overlay">
-        <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg" alt="Card image cap">
-        <a href="#!">
-          <div class="mask rgba-white-slight"></div>
-        </a>
+    <div class="carousel-item">
+      <!--Mask color-->
+      <div class="view">
+        <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(9).jpg"
+          alt="Third slide">
+        <div class="mask rgba-black-slight"></div>
       </div>
-
-      <!--Card content-->
-      <div class="card-body">
-
-        <!--Title-->
-        <h4 class="card-title">Card title</h4>
-        <!--Text-->
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-          card's content.</p>
-        <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-        <button type="button" class="btn btn-light-blue btn-md">Read more</button>
-
+      <div class="carousel-caption">
+        <h3 class="h3-responsive">Signals & Systems</h3>
+        <p>Signals & Systems</p>
       </div>
-
     </div>
-    <!-- Card -->
   </div>
+  <!--/.Slides-->
+  <!--Controls-->
+  <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+  <!--/.Controls-->
 </div>
-</div>
-<!-- Card deck -->
-
+<!--/.Carousel Wrapper-->
 {% endblock %}
-
 {% block side %}
 
 {% endblock %}

@@ -84,3 +84,4 @@ def polezero(request):
         }
         return render(request,'dashboard/polezero.html',result)
     return render(request,'dashboard/polezero.html')
+

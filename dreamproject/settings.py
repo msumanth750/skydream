@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'dashboard',
+    'syllabus',
+    'app_name',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -86,13 +89,13 @@ DATABASES = {
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
-PASSWORD_HASHERS =[
-    'django.contrib.auth.hashers.Argon2PasswordHasher',
-    'django.contrib.auth.hashers.BcryptSHA265PasswordHasher',
-    'django.contrib.auth.hashers.BcryptPasswordHasher',
-    'django.contrib.auth.hashers.PBKDF2PasswordHasher',
-    'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
-]
+# PASSWORD_HASHERS =[
+#     'django.contrib.auth.hashers.Argon2PasswordHasher',
+#     'django.contrib.auth.hashers.BcryptSHA265PasswordHasher',
+#     'django.contrib.auth.hashers.BcryptPasswordHasher',
+#     'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+#     'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+# ]
 
 AUTH_PASSWORD_VALIDATORS = [
     {

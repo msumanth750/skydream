@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>syllabus list</title>
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+	<!-- Google Fonts -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+	<!-- Bootstrap core CSS -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+	<!-- Material Design Bootstrap -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+	<style>
+
+  html,
+  body,
+  header,
+  .view {
+    height: 100%;
+  }
+
+  @media (max-width: 740px) {
+    html,
+    body,
+    header,
+    .view {
+      height: 1100px;
+    }
+  }
+  @media (min-width: 800px) and (max-width: 850px) {
+    html,
+    body,
+    header,
+    .view {
+      height: 700px;
+    }
+  }
+
+  .top-nav-collapse {
+    background-color: #39448c !important;
+  }
+
+  .navbar:not(.top-nav-collapse) {
+    background: transparent !important;
+  }
+
+  @media (max-width: 991px) {
+   .navbar:not(.top-nav-collapse) {
+    background: #39448c !important;
+   }
+  }
+
+  h6 {
+    line-height: 1.7;
+  }
+
+</style>
+</head>
+<body>
+	<div class="container purple-gradient color-block ">
+		<!-- Button trigger modal -->
+	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addsubject">
+		Add Subject
+	</button>
+	<form  method="POST">
+		{%csrf_token%}
+		<!-- Modal -->
+		<div class="modal fade" id="addsubject" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+			aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						{{form.as_p}}
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+						<button type="submit" class="btn btn-primary">Add Subject</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+		<div class="row ml-2 mt-2">
+			{% for subject in subjects %}
+			<div class="card ml-1 mr-1  mb-2 ">
+				<div class="card-body">
+					<h5 class="card-title">{{subject.name|upper}}</h5>
+					<p class="card-text">{{subject.code}}</p>
+					<a class="card-link">{{subject.units}} Units</a>
+					<a class="card-link">{{subject.branch|upper}}</a>
+				</div>
+			</div>
+			{%endfor %}
+		</div>
+
+
+	</div>
+
+</body>
+	<!-- JQuery -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<!-- Bootstrap tooltips -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+	<!-- Bootstrap core JavaScript -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+	<!-- MDB core JavaScript -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+</html>
