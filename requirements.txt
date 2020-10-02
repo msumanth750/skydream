@@ -1,10 +1,4 @@
 appdirs==1.4.4
-argon2-cffi==20.1.0
-bcrypt==3.1.7
-beautifulsoup4==4.8.2
-blinker==1.4
-cachetools==4.0.0
-cupshelpers==1.0
 cycler==0.10.0
 dbus-python==1.2.16
 defer==1.0.6
