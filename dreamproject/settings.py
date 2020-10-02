@@ -25,9 +25,9 @@ STATIC_DIR = os.path.join(BASE_DIR,'static')
 SECRET_KEY = 't0ynkhlai-d@jg=bs(4*#-91#o_zp8#!d(q5dtv++k)s0y@^z+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['skydream.herokuapp.com','127.0.0.1']
 
 
 # Application definition
