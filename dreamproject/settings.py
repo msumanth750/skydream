@@ -92,7 +92,7 @@ WSGI_APPLICATION = 'dreamproject.wsgi.application'
 DATABASES = {
    'default': {
        'ENGINE': 'django.db.backends.postgresql',
-       'NAME': ‘mydb’,
+       'NAME': 'mydb',
        'USER': 'admin',
        'PASSWORD': 'password',
        'HOST': 'localhost',
